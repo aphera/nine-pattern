@@ -4,3 +4,9 @@
 *.ids
 *.log
 .idea
+
+out/
+
+*~
+
+classes
