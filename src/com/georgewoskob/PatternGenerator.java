@@ -3,8 +3,8 @@ package com.georgewoskob;
 public class PatternGenerator {
 
     private int repeatsPerInstance = 1;
-    private String on = "#";
-    private String off = ".";
+    private String on = "1";
+    private String off = "-1";
 
     public PatternGenerator(int repeatsPerInstance) {
         this.repeatsPerInstance = repeatsPerInstance;
@@ -49,7 +49,7 @@ public class PatternGenerator {
     private String playInstant(String firstString) {
         String pattern = "";
         for(int c = 0; c < repeatsPerInstance; c++) {
-            pattern += firstString;
+            pattern += firstString + ",";
         }
         return pattern;
     }
