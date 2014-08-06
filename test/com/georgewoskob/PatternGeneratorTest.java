@@ -2,38 +2,43 @@ package com.georgewoskob;
 
 import org.junit.Test;
 
+import java.util.List;
+
+import static com.google.common.collect.Lists.newArrayList;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class PatternGeneratorTest {
 
-    PatternGenerator patternGenerator = new PatternGenerator();
+    PatternGenerator patternGenerator;
 
     @Test
     public void shouldProduceNinePatterForFourInstances() {
-        String expectedPattern = "1001";
+        patternGenerator = new PatternGenerator("1", "0");
+        List expectedPattern = newArrayList("1", "0", "0", "1");
 
-        String actualPattern = patternGenerator.play(4);
+        List actualPattern = patternGenerator.play(4);
 
         assertThat(actualPattern, is(expectedPattern));
     }
 
     @Test
     public void shouldProduceNinePatternForSixteenInstances() {
-        String expectedPattern = "1001011001101001";
+        patternGenerator = new PatternGenerator("1", "0");
+        List expectedPattern = newArrayList("1", "0", "0", "1", "0", "1", "1", "0", "0", "1", "1", "0", "1", "0", "0", "1");
 
-        String actualPattern = patternGenerator.play(16);
+        List actualPattern = patternGenerator.play(16);
 
         assertThat(actualPattern, is(expectedPattern));
     }
 
     @Test
     public void shouldProduceNinePatternRepeatingEachInstanceFourTimes() {
-        String expectedPattern = "1111000000001111";
+        List expectedPattern = newArrayList("1", "1", "1", "1", "0", "0", "0", "0", "0", "0", "0", "0", "1", "1", "1", "1");
 
-        patternGenerator = new PatternGenerator(4);
+        patternGenerator = new PatternGenerator(4, "1", "0");
 
-        String actualPattern = patternGenerator.play(4);
+        List actualPattern = patternGenerator.play(4);
 
         assertThat(actualPattern, is(expectedPattern));
     }
