@@ -14,17 +14,12 @@ public class Main {
         for (int c = 0; c < 4096; c++) {
             waveform.add(0);
         }
-        waveform = addToWaveform(waveform, 1, 4096, 16);
-        waveform = addToWaveform(waveform, 4, 1024, 19);
-        waveform = addToWaveform(waveform, 16, 256, 25);
-        waveform = addToWaveform(waveform, 64, 64, 29);
-        waveform = addToWaveform(waveform, 256, 16, 31);
-        waveform = addToWaveform(waveform, 1024, 4, 32);
+        waveform = addToWaveform(waveform, 1, 4096, 1);
         return waveform;
     }
 
     private static List addToWaveform(List<Integer> waveform, int repeatsPerInstance, int numberOfInstances, int weight) {
-        PatternGenerator patternGenerator = new PatternGenerator(repeatsPerInstance, "1", "-1");
+        PatternGenerator patternGenerator = new PatternGenerator(repeatsPerInstance, "1", "0");
         for (int c = 0; c < weight; c++) {
             List<String> pattern = patternGenerator.play(numberOfInstances);
             for (int i = 0; i < pattern.size(); i++) {
